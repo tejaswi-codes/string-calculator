@@ -17,8 +17,17 @@ export const add = (numbers) => {
         numStr = getNumStrForCustomDelimiter(numbers)
     }
 
+
     // splitting 
     const chunks = numStr.split(new RegExp(`${delimiter}|${GLOBAL_DELIMITER}`))
+
+
+    // check for negative numbers
+    const negatives = chunks.filter(num => parseInt(num) < 0)
+    if (negatives.length > 0) {
+        throw new Error(`negative numbers not allowed ${negatives.join(",")}`)
+    }
+
 
     // adding
     return chunks.reduce((sum, num) => sum + parseInt(num), 0)
