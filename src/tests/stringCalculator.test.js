@@ -12,4 +12,8 @@ describe('string calculator', () => {
         expect(add("1")).toBe(1)
     })
 
+    it("should return the sum of two numbers given in comma-separated format", () => {
+        expect(add("1,5")).toBe(6)
+    })
+
 })
