@@ -28,4 +28,8 @@ describe('string calculator', () => {
         expect(add("//;\n1;2")).toBe(3)
     })
 
+    it("should throw an exception given the presence of a single negative number", () => {
+        expect(() => add("1,-2")).toThrow("negative numbers not allowed -2")
+    })
+
 })
