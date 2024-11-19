@@ -29,7 +29,10 @@ describe('string calculator', () => {
     })
 
     it("should throw an exception given the presence of a single negative number", () => {
-        expect(() => add("1,-2")).toThrow("negative numbers not allowed -2")
+        expect(() => add("1,-2")).toThrow(/^negative numbers not allowed -2$/)
     })
 
+    it("should throw an exception given the presence of any negative numbers", () => {
+        expect(() => add("1,-2\n3,-6,-1")).toThrow(/^negative numbers not allowed -2,-6,-1$/)
+    })
 })
