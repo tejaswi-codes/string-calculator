@@ -3,5 +3,5 @@ export const add = (numbers) => {
     if (numbers.indexOf(",") === -1) return parseInt(numbers)
 
     let chunks = numbers.split(",")    
-    return parseInt(chunks[0])+parseInt(chunks[1])
+    return chunks.reduce((sum, num) => sum + parseInt(num), 0)
 }

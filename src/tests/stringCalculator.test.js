@@ -17,7 +17,7 @@ describe('string calculator', () => {
     })
 
     it("should return the sum of any numbers given in comma-separated format", () => {
-        expect(add("1,3,6,7")).toBe(20)
+        expect(add("1,3,6,7")).toBe(17)
     })
 
 })
