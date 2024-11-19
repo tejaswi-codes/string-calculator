@@ -20,4 +20,8 @@ describe('string calculator', () => {
         expect(add("1,3,6,7")).toBe(17)
     })
 
+    it("should handle new lines between numbers (instead of commas)", () => {
+        expect(add("1\n2,3")).toBe(6)
+    })
+
 })
