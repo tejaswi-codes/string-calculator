@@ -22,10 +22,15 @@ export const add = (numbers) => {
     const chunks = numStr.split(new RegExp(`${delimiter}|${GLOBAL_DELIMITER}`))
 
 
-    // check for negative numbers
-    const negatives = chunks.filter(num => Number(num) < 0)
+    // check for negative numbers and non-numeric values
+    const [negatives, nonNumbers] = getOutliers(chunks)
+
+
+    // exception-handling
     if (negatives.length > 0) {
         throw new Error(`negative numbers not allowed ${negatives.join(",")}`)
+    } else if (nonNumbers.length > 0) {
+        throw new Error(`non-numeric values not allowed ${nonNumbers.join(",")}`)
     }
 
 
@@ -40,4 +45,21 @@ export const add = (numbers) => {
 const getNumStrForCustomDelimiter = (fullStr) => {
     const firstLineEndsAt = fullStr.indexOf(GLOBAL_DELIMITER)
     return fullStr.substring(firstLineEndsAt + 1)
+}
+
+// Helper function
+const getOutliers = (strArray) => {
+    const negatives = []
+    const nonNumbers = []
+
+    strArray.forEach(str => {
+        const num = Number(str)
+        if (isNaN(num)) {
+            nonNumbers.push(str)
+        } else if (num < 0) {
+            negatives.push(str)
+        }
+    })
+
+    return [negatives, nonNumbers]
 }
