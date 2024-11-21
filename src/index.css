@@ -45,3 +45,7 @@
     border-radius: 10px;
     border: 2px solid #e0e0e0;
 }
+
+.para {
+    @apply min-w-[100px] max-w-[60%] px-4 py-2 text-duskGray text-base text-center tracking-wider;
+}

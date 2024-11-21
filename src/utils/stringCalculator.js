@@ -35,7 +35,7 @@ export const add = (numbers) => {
 
 
     // adding
-    return chunks.reduce((sum, num) => sum + Number(num), 0)
+    return chunks.reduce((sum, str) => sum + Number(str), 0)
 }
 
 
@@ -46,6 +46,7 @@ const getNumStrForCustomDelimiter = (fullStr) => {
     const firstLineEndsAt = fullStr.indexOf(GLOBAL_DELIMITER)
     return fullStr.substring(firstLineEndsAt + 1)
 }
+
 
 // Helper function
 const getOutliers = (strArray) => {
