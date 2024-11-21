@@ -49,3 +49,7 @@
 .para {
     @apply min-w-[100px] max-w-[60%] px-4 py-2 text-duskGray text-base text-center tracking-wider;
 }
+
+.inlineCode {
+    @apply bg-borderGray px-2 rounded;
+}
