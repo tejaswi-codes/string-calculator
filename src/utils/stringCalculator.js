@@ -23,14 +23,14 @@ export const add = (numbers) => {
 
 
     // check for negative numbers
-    const negatives = chunks.filter(num => parseInt(num) < 0)
+    const negatives = chunks.filter(num => Number(num) < 0)
     if (negatives.length > 0) {
         throw new Error(`negative numbers not allowed ${negatives.join(",")}`)
     }
 
 
     // adding
-    return chunks.reduce((sum, num) => sum + parseInt(num), 0)
+    return chunks.reduce((sum, num) => sum + Number(num), 0)
 }
 
 
