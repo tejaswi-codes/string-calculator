@@ -42,4 +42,11 @@ describe('string calculator', () => {
         expect(add("3.14,2.86")).toBe(6)
         expect(add("1.1\n1.9")).toBe(3)
     })
+
+    it("should throw an exception given the presence of non-numbers", () => {
+        expect(() => add("1,a,3")).toThrow(/^non-numeric values not allowed a$/)
+        expect(() => add("4\nb,5")).toThrow(/^non-numeric values not allowed b$/)
+        expect(() => add("x,123y,z")).toThrow(/^non-numeric values not allowed x,123y,z$/)
+        expect(() => add("2.5,abc")).toThrow(/^non-numeric values not allowed abc$/)
+    })
 })
