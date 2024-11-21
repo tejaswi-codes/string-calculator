@@ -35,4 +35,11 @@ describe('string calculator', () => {
     it("should throw an exception given the presence of any negative numbers", () => {
         expect(() => add("1,-2\n3,-6,-1")).toThrow(/^negative numbers not allowed -2,-6,-1$/)
     })
+
+    it("should allow decimal number addition", () => {
+        expect(add("1.5,2.5")).toBe(4)
+        expect(add("0.1,0.2")).toBeCloseTo(0.3, 5)
+        expect(add("3.14,2.86")).toBe(6)
+        expect(add("1.1\n1.9")).toBe(3)
+    })
 })
