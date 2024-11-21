@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.vflex {
+    @apply flex flex-col items-center justify-center gap-6;
+}
+
+.deepShadow {
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: inset 5px 5px 9px #c3c3c3, inset -5px -5px 9px #fdfdfd;
+}
+
+.flatShadow {
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: 5px 5px 10px #a8a8a8, -5px -5px 10px #ffffff;
+    @apply border border-borderGray;
+}
+
+.btn {
+    @apply flatShadow text-midnightBlue font-sans text-base tracking-widest px-6 py-3;
+}
+
+.textareaScrollbar {
+    @apply focus:outline-none;
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: #888 #e0e0e0;
+    /* Firefox */
+}
+
+.textareaScrollbar::-webkit-scrollbar {
+    width: 6px;
+    /* Chrome, Safari, Edge */
+}
+
+.textareaScrollbar::-webkit-scrollbar-track {
+    background: #e0e0e0;
+}
+
+.textareaScrollbar::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+}
+
+.para {
+    @apply min-w-[100px] max-w-[60%] px-4 py-2 text-duskGray text-base text-center tracking-wider;
+}
+
+.inlineCode {
+    @apply bg-borderGray px-2 rounded;
+}
