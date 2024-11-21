@@ -49,4 +49,10 @@ describe('string calculator', () => {
         expect(() => add("x,123y,z")).toThrow(/^non-numeric values not allowed x,123y,z$/)
         expect(() => add("2.5,abc")).toThrow(/^non-numeric values not allowed abc$/)
     })
+
+    it("should handle absence of a number in between consecutive delimiters", () => {
+        expect(add("1,,2\n3")).toBe(6)
+        expect(add("1,2\n\n3")).toBe(6)
+        expect(add("//;\n1;;2\n\n3")).toBe(6)
+    })
 })
